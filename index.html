@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
+    <title>Meme-generator</title>
+</head>
+
+<body onload="onInit()">
+    <header class="header-container flex align-center space-between">
+        <img src="images/Layer-2.png" class="header-logo">
+        <ul class="main-menu clean-list flex justify-center">
+            <li><a href="index.html">Gallery</a></li>
+            <li><a href="#about">About</a></li>
+        </ul>
+    </header>
+    <div class="search flex align-center">
+        <input type="text" class="search-meme" name="search-meme" placeholder="Search" oninput="renderGallery()"
+            oninput="onSearch()">
+    </div>
+    <div class="img-gallery flex wrap justify-center ">
+    </div>
+    <section id="about" class="about flex justify-center align-center">
+        <img src="images/me.jpeg" class="about-img" />
+        <div>
+            <h4>Tal Ekroni</h4>
+            <p>Just created this meme editor go ahead have fun</p>
+            <div class="socials">
+                <a class="face" href="#"></a>
+                <a class="insta" href="#"></a>
+                <a class="linked" href="#"></a>
+            </div>
+        </div>
+    </section>
+
+    <section class="edit flex align-center space-between">
+        <div class="canvas-container">
+            <canvas id="canvas" width="275" height="275"></canvas>
+        </div>
+
+        <div class="edit-btns flex column align-center">
+            <div class="tools-1  ">
+                <input type="text" class="new-line" oninput="onSetText(this.value)">
+            </div>
+            <div class="tools-2">
+                <img src="images/ICONS/up-and-down-opposite-double-arrows-side-by-side.png" class="edit-tools"
+                    alt="switch lines" onclick="onSwitchLines()">
+                <img src="images/ICONS/add.png" alt="add line" class="edit-tools" onclick="onCreateLine()">
+                <img src="images/Icons/trash.png" alt="delete" class="edit-tools" onclick="onDeleteLine()">
+            </div>
+            <div class="tools-3">
+                <img src="images/ICONS/increase font - icon.png" alt="increase font" class="edit-tools"
+                    onclick="onIncreaseFont()">
+                <img src="images/ICONS/decrease font - icon.png" alt="Decrease font" class="edit-tools"
+                    onclick="onDecreaseFont()">
+                <img src="images/ICONS/align-to-left.png" alt="align left" class="edit-tools" onclick="onAlign(5)">
+                <img src="images/ICONS/center-text-alignment.png" alt="center text" class="edit-tools"
+                    onclick="onAlign(60)">
+                <img src="images/ICONS/align-to-right.png" alt="align right" class="edit-tools" onclick="onAlign(130)">
+            </div>
+            <div class="tools-4 flex justify-center">
+                <select name="fonts" class="font-select" onchange="onSelectFont(this.value)">
+                    <option style="font-family:Impact" value="Impact">Impact</option>
+                    <option style="font-family:Arial" value="Arial">Arial</option>
+                    <option style="font-family:Verdana" value="Verdana">Verdana</option>
+                </select>
+                <div>
+                    <input type="color" class="edit-tools" oninput="onChangeStroke(this.value)">
+                </div>
+                <!-- <img src="images/ICONS/text stroke.png" alt="text stroke" class="edit-tools"> -->
+                <div>
+                    <!-- <img src="images/ICONS/paint-board-and-brush.png" alt="color" id="color-change" class="edit-tools">  -->
+                    <input type="color" class="edit-tools" oninput="onChangeColor(this.value)">
+                </div>
+            </div>
+            <div class="tools-5 flex justify-center">
+                <button class="edit-tools" onclick="onMoveUp()">&#8593</button>
+                <button class="edit-tools" onclick="onMoveDown()">&#8595</button>
+            </div>
+        </div>
+
+
+    </section>
+    <footer class="main-footer flex column justify-center align-center">
+        <img src="images/Layer-2.png" class="footer-logo">
+
+        <small class="rights">all right reserved 2019</small>
+    </footer>
+    <script src="js/upload-controller.js"></script>
+    <script src="js/upload-service.js"></script>
+    <script src="js/meme-service.js"></script>
+    <script src="js/meme-controller.js"></script>
+</body>
+
+</html>
