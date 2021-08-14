@@ -127,3 +127,7 @@ function onDownloadImg(elLink) {
     renderCanvas()
     downloadImg(elLink)
 }
+
+function onToggleMenu() {
+    document.body.classList.toggle('menu-open')
+}
