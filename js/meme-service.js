@@ -1,6 +1,7 @@
 'use strict'
 var gElCanvas
 var gCtx
+
 var gImgs = [
     { id: 1, url: 'images/1.jpg', keywords: ['politics', 'angry'] },
     { id: 2, url: 'images/2.jpg', keywords: ['cute', 'dog'] },
@@ -83,9 +84,6 @@ function createLine() {
     }
     gMeme.lines.push(line)
     switchLines()
-    // gMeme.selectedLineIdx++
-    // gMeme.selectedLineIdx = (gMeme.lines.length) ? gMeme.lines.length : 0
-    // gMeme.lines[gMeme.lines.length - 2].isSelected = false
 }
 
 function switchLines() {

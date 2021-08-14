@@ -5,6 +5,7 @@ function onInit() {
     gElCanvas = document.getElementById('canvas');
     gCtx = gElCanvas.getContext('2d');
     document.querySelector('.edit').classList.toggle('hidden')
+
     renderGallery()
 }
 
