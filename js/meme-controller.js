@@ -2,7 +2,7 @@
 
 
 function onInit() {
-    isDownload=false
+    isDownload = false
     gElCanvas = document.getElementById('canvas');
     gCtx = gElCanvas.getContext('2d');
     document.querySelector('.edit').classList.toggle('hidden')
@@ -28,7 +28,14 @@ function drawText(line) {
     gCtx.strokeStyle = `${line.stroke}`
     gCtx.fillStyle = `${line.color}`
     if (line.isSelected) {
-        gCtx.strokeStyle = 'green'
+        var textWidth = gCtx.measureText(line.txt).width;
+        var lineHeight = line.size * 1.286;
+        gCtx.textAlign = 'left';
+        gCtx.textBaseline = 'top';
+        gCtx.fillText(line.txt, line.posX, line.posY);
+        gCtx.strokeText(line.txt, line.posX, line.posY)
+        gCtx.strokeRect(line.posX, line.posY, textWidth, lineHeight);
+        return
     }
     gCtx.fillText(line.txt, line.posX, line.posY);
     gCtx.strokeText(line.txt, line.posX, line.posY)
