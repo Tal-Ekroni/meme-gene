@@ -139,16 +139,16 @@ header ul li:hover {
     text-decoration: none;
 }
 
-.socials .face::before {
+.socials .linked::before {
     content: '\f08c';
 }
 
-.socials .insta::before {
-    content: '\f082';
+.socials .git::before {
+    content: '\f092';
 }
 
-.socials .linked::before {
-    content: '\f092';
+.socials .face::before {
+    content: '\f082';
 }
 
 /* CANVAS  */
@@ -183,7 +183,7 @@ header ul li:hover {
     width: 20px;
     height: 20px;
     margin: 4.5px -2px 2px 8.5px;
-    padding: 2.5px 3.2px 1.9px 2.2px;
+    padding: 0.5px 2.2px 0.9px 2.2px;
     border-radius: 6px;
     background-color: #fff;
     object-fit: contain;
@@ -203,13 +203,26 @@ header ul li:hover {
     text-align: center;
 }
 
-.emoji {
-    width: 186.5px;
-    height: 67.5px;
-    margin: 15px 0 10px 0.5px;
-    padding: 16px 3.7px;
-    border-radius: 6px;
-    background-color: #fff;
+.download-btn a {
+    text-decoration: none;
+    font: Montserrat;
+    font-size: 1.5rem;
+    line-height: 1.2;
+    letter-spacing: normal;
+    text-align: center;
+    color: #fff;
+    background-color: #ff7f00;
+}
+
+.download-btn {
+    background-color: Transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+    color: white;
+    margin-top: 50px;
 }
 
 /* FOOOTER */
@@ -318,7 +331,7 @@ header ul li:hover {
     }
     .edit-tools {
         margin: 4.5px -2px 2px 8.5px;
-        padding: 2.5px 3.2px 1.9px 2.2px;
+        padding: 0.5px 2.2px 0.9px 2.2px;
     }
     .menu-toggle {
         visibility: hidden;
@@ -326,7 +339,6 @@ header ul li:hover {
     .about {
         height: 230px;
     }
-    
     .about-img {
         width: 140px;
         height: 140px;
@@ -366,10 +378,10 @@ header ul li:hover {
     }
     .screen {
         position: fixed;
-        top:0;
-        left:0;
-        right:0;
-        bottom:0;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
         /* display: none; */
         background-color: rgb(0 0 0 / 50%);
         cursor: pointer;
@@ -381,6 +393,11 @@ header ul li:hover {
         display: block;
         opacity: 1;
         pointer-events: auto;
-
+    }
+    .download-btn {
+        margin-top: 35px;
+    }
+    .download-btn a {
+        font-size: 1rem;
     }
 }

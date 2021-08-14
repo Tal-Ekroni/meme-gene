@@ -31,9 +31,9 @@
             <h4>Tal Ekroni</h4>
             <p>Just created this meme editor go ahead have fun</p>
             <div class="socials">
-                <a class="face" href="#"></a>
-                <a class="insta" href="#"></a>
                 <a class="linked" href="#"></a>
+                <a class="git" href="#"></a>
+                <a class="face" href="#"></a>
             </div>
         </div>
     </section>
@@ -48,6 +48,8 @@
                 <input type="text" class="new-line" oninput="onSetText(this.value)">
             </div>
             <div class="tools-2">
+                <img src="images/ICONS/up-and-down-opposite-double-arrows-side-by-side.png" class="edit-tools"
+                    alt="switch lines" onclick="onSwitchLines()">
                 <img src="images/ICONS/up-and-down-opposite-double-arrows-side-by-side.png" class="edit-tools"
                     alt="switch lines" onclick="onSwitchLines()">
                 <img src="images/ICONS/add.png" alt="add line" class="edit-tools" onclick="onCreateLine()">
@@ -83,9 +85,12 @@
                 <button class="edit-tools" onclick="onMoveDown()">&#8595</button>
             </div>
             <div class="tools-6 flex justify-center">
-                <a href="#" class="edit-tools download" onclick="onDownloadImg(this)"
-                onclick="downloadImg(this)"    download="my-img.jpg"> </a>
-                        
+                <button class="download-btn">
+                    <a href="#" class="edit-tools download" onclick="onDownloadImg(this)" onclick="downloadImg(this)"
+                        download="my-img.jpg"> Download</a>
+
+                </button>
+
                 <!-- <button class="edit-tools" onclick="onMoveDown()">&#8595</button> -->
             </div>
         </div>
