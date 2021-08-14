@@ -323,6 +323,18 @@ header ul li:hover {
     .menu-toggle {
         visibility: hidden;
     }
+    .about {
+        height: 230px;
+    }
+    
+    .about-img {
+        width: 140px;
+        height: 140px;
+        margin: 0 40px 0 0;
+        background-color: #959595;
+        border-radius: 50%;
+        object-fit: fill;
+    }
 }
 
 /* HABURGER NAV  */
