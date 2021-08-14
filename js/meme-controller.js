@@ -2,7 +2,6 @@
 
 
 function onInit() {
-    isDownload = false
     gElCanvas = document.getElementById('canvas');
     gCtx = gElCanvas.getContext('2d');
     document.querySelector('.edit').classList.toggle('hidden')
@@ -35,7 +34,6 @@ function drawText(line) {
         gCtx.fillText(line.txt, line.posX, line.posY);
         gCtx.strokeText(line.txt, line.posX, line.posY)
         gCtx.strokeRect(line.posX, line.posY, textWidth, lineHeight);
-        return
     }
     gCtx.fillText(line.txt, line.posX, line.posY);
     gCtx.strokeText(line.txt, line.posX, line.posY)
@@ -72,12 +70,11 @@ function drawImg(img) {
 }
 
 function onIncreaseFont() {
-    gMeme.lines[gMeme.selectedLineIdx].size += 2
+    increaseFont()
     renderCanvas()
 }
 function onDecreaseFont() {
-    if (gMeme.lines[gMeme.selectedLineIdx].size === 2) return
-    gMeme.lines[gMeme.selectedLineIdx].size -= 2
+    decreaseFont()
     renderCanvas()
 }
 
