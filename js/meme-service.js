@@ -1,10 +1,7 @@
 'use strict'
 var gElCanvas
-var startingX
-var startingY
 var gCtx
-var startingX
-var startingY
+
 
 var gImgs = [
     { id: 1, url: 'images/1.jpg', keywords: ['politics', 'angry'] },
@@ -36,8 +33,8 @@ var gMeme = {
             color: 'white',
             font: 'Impact',
             stroke: 'black',
-            posX: startingX,
-            posY: startingY,
+            posX: 90,
+            posY: 20,
             isSelected: true
         }
     ]
@@ -74,38 +71,42 @@ function createLine() {
         color: 'white',
         font: 'Impact',
         stroke: 'black',
-        posX: startingX,
-        posY: startingY,
+        posX: 80,
+        posY: 150,
         isSelected: true
     }
-    if (gMeme.selectedLineIdx ===0) {
-        line.posX=80
-        line.posY=20
+    if (gMeme.selectedLineIdx + 1 === 1) {
+        line.posX = 90
+        line.posY = 260
     }
-    if (gMeme.selectedLineIdx ===1) {
-        line.posX=80
-        line.posY=260
+    if (!gMeme.lines.length) {
+        line.posX = 90
+        line.posY = 20
     }
     gMeme.lines.push(line)
-    gMeme.lines[gMeme.lines.length - 2].isSelected = false
-    gMeme.selectedLineIdx = gMeme.lines.length - 1
+    switchLines()
+    // gMeme.selectedLineIdx++
+    // gMeme.selectedLineIdx = (gMeme.lines.length) ? gMeme.lines.length : 0
+    // gMeme.lines[gMeme.lines.length - 2].isSelected = false
 }
 
 function switchLines() {
-
-
     gMeme.selectedLineIdx++
     if (gMeme.selectedLineIdx === gMeme.lines.length) {
         gMeme.selectedLineIdx = 0;
     }
     gMeme.lines[gMeme.selectedLineIdx].isSelected = true
     if (gMeme.selectedLineIdx === 0) {
-        gMeme.lines[gMeme.lines.length - 1].isSelected = false;
+        gMeme.lines[gMeme.lines.length - 1].isSelected = false
+        gMeme.lines[0].isSelected = true
     } else {
-        gMeme.lines[gMeme.selectedLineIdx - 1].isSelected = false;
+        gMeme.lines[gMeme.selectedLineIdx - 1].isSelected = false
     }
-    console.log(gMeme.selectedLineIdx);
+    if (gMeme.lines.length === 1) {
+        gMeme.lines[0].isSelected = false
+        gMeme.selectedLineIdx = 0
 
+    }
 }
 
 function getSelectedLine() {
@@ -120,6 +121,8 @@ function getMeme() {
 function deleteLine() {
     gMeme.lines.splice(gMeme.selectedLineIdx, 1)
     gMeme.selectedLineIdx--
+    if (gMeme.lines.length === 0) gMeme.selectedLineIdx = 0
+
 }
 
 function align(x) {
@@ -149,3 +152,9 @@ function search() {
     return filterdImgs;
 }
 
+function moveUp() {
+    gMeme.lines[gMeme.selectedLineIdx].posY += -10
+}
+function moveDown() {
+    gMeme.lines[gMeme.selectedLineIdx].posY += 10
+}

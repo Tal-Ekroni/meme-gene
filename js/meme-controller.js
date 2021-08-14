@@ -5,8 +5,6 @@ function onInit() {
     gElCanvas = document.getElementById('canvas');
     gCtx = gElCanvas.getContext('2d');
     document.querySelector('.edit').classList.toggle('hidden')
-    startingX = gElCanvas.width / 2.5
-    startingY = gElCanvas.height / 2
     renderGallery()
 }
 
@@ -76,11 +74,11 @@ function onDecreaseFont() {
 }
 
 function onMoveUp() {
-    gMeme.lines[gMeme.selectedLineIdx].posY += -10
+    moveUp()
     renderCanvas()
 }
 function onMoveDown() {
-    gMeme.lines[gMeme.selectedLineIdx].posY += 10
+    moveDown()
     renderCanvas()
 }
 
@@ -90,9 +88,9 @@ function onSwitchLines() {
 }
 
 function onCreateLine() {
-    document.querySelector('.new-line').value = ''
     createLine()
     renderCanvas()
+    document.querySelector('.new-line').value = ''
 }
 
 function onDeleteLine() {
