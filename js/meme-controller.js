@@ -20,7 +20,7 @@ function renderCanvas() {
     }
 }
 
-function drawText(line) {
+function drawText(line ) {
     if (!line.txt) return
     gCtx.font = `${line.size}px ${line.font}`
     gCtx.lineWidth = 2
@@ -29,6 +29,7 @@ function drawText(line) {
     if (line.isSelected) {
         gCtx.strokeStyle = 'green'
     }
+
     gCtx.fillText(line.txt, line.posX, line.posY);
     gCtx.strokeText(line.txt, line.posX, line.posY)
 }
@@ -121,4 +122,8 @@ function onChangeStroke(val) {
 
 function onSearch() {
     return search()
+}
+function onDownloadImg(elLink) {
+    renderCanvas()
+    downloadImg(elLink)
 }

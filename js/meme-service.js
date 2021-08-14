@@ -2,7 +2,6 @@
 var gElCanvas
 var gCtx
 
-
 var gImgs = [
     { id: 1, url: 'images/1.jpg', keywords: ['politics', 'angry'] },
     { id: 2, url: 'images/2.jpg', keywords: ['cute', 'dog'] },
@@ -157,4 +156,8 @@ function moveUp() {
 }
 function moveDown() {
     gMeme.lines[gMeme.selectedLineIdx].posY += 10
+}
+function downloadImg(elLink) {
+    var imgContent = gElCanvas.toDataURL('image/jpeg')
+    elLink.href = imgContent
 }
