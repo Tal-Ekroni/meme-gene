@@ -36,15 +36,15 @@ body {
 
 .header-container {
     padding: 0;
-    height: 33px;
+    height: 66px;
     padding-left: 25px;
     background-color: #ff7f00;
 }
 
 .header-logo {
-    width: 66.5px;
-    height: 11px;
-    margin: 3.5px 30.8px 8px 0;
+    width: 123.5px;
+    height: 60px;
+    margin: 3.5px 19.8px -1px -7px;
     object-fit: contain;
 }
 
@@ -53,13 +53,15 @@ body {
 .main-menu {
     height: 100%;
 }
-
+.menu-toggle{
+    font-size: 36px;
+}
 .main-menu a {
     cursor: pointer;
     height: 100%;
     padding: 0 10px;
     box-sizing: border-box;
-    font-size: 0.593rem;
+    /* font-size: 0.593rem; */
     text-decoration: none;
     color: #ffffff;
 }
@@ -88,9 +90,9 @@ header ul li {
     display: inline-flex;
 }
 
-header ul li:hover {
+header ul li a:hover {
     color: #040a2c;
-    border-bottom: 1px solid #040a2c;
+    /* border-bottom: 1px solid #040a2c; */
 }
 
 /* GALLERY */
