@@ -50,7 +50,6 @@ body {
 
 /* NAV  */
 
-
 .main-menu a {
     display: flex;
     align-items: center;
@@ -130,7 +129,6 @@ header ul li :hover {
 .about {
     height: 160px;
 }
-
 
 .about-img {
     width: 80px;
@@ -346,6 +344,9 @@ header ul li :hover {
         align-items: stretch;
         order: 1;
     }
+    .header ul li {
+        height: 100%;
+    }
     .edit-tools {
         margin: 4.5px -2px 2px 8.5px;
         padding: 0.5px 2.2px 0.9px 2.2px;
@@ -388,9 +389,8 @@ header ul li :hover {
         box-shadow: -5px -8px 10px #ff7f0080;
     }
     .main-menu a {
-   
         padding: 10px 0;
-        border-bottom: 1px solid black
+        /* border-bottom: 1px solid black */
     }
     .screen {
         position: fixed;
@@ -416,5 +416,8 @@ header ul li :hover {
     .download-btn a {
         font-size: 1rem;
     }
+    header ul li {
+        height: 20px;
+        margin-top:10px
+    }
 }
-
