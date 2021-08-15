@@ -5,7 +5,7 @@ function onInit() {
     gElCanvas = document.getElementById('canvas');
     gCtx = gElCanvas.getContext('2d');
     document.querySelector('.edit').classList.toggle('hidden')
-
+    document.querySelector('.saved-memes').classList.toggle('hidden')
     renderGallery()
 }
 
@@ -135,4 +135,29 @@ function onDownloadImg(elLink) {
 
 function onToggleMenu() {
     document.body.classList.toggle('menu-open')
+}
+function renderSavedMemes() {
+    var savedMeme = loadFromStorage(KEY);
+    var strHtmls = savedMeme.map(function (meme, idx) {
+        return ` <div class="saved-memes"><img class="img-saved" onclick="onLoadSavedMeme(${idx})" src='${meme.img}'></div>`
+    })
+    var elSaved = document.querySelector('.saved-memes');
+    elSaved.innerHTML = strHtmls.join('');
+}
+function onOpenSavedMemesGallery(){
+    document.querySelector('.saved-memes').classList.toggle('hidden')
+    document.querySelector('.img-gallery').classList.toggle('hidden')
+    document.querySelector('.about').classList.toggle('hidden')
+    renderSavedMemes()
+}
+function onSave(){
+    saveMeme()
+}
+function onLoadSavedMeme(idx) {
+    var savedMemes = loadFromStorage(KEY);
+    document.querySelector('.saved-memes').classList.toggle('hidden')
+    document.querySelector('.edit').classList.toggle('hidden')
+    setSavedMeme(savedMemes[idx].meme);
+    // drewCanvas()
+    renderCanvas();
 }

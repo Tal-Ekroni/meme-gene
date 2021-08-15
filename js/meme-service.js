@@ -1,7 +1,8 @@
 'use strict'
 var gElCanvas
 var gCtx
-
+var gMemeSave = []
+const KEY = 'memeDB'
 var gImgs = [
     { id: 1, url: 'images/1.jpg', keywords: ['politics', 'angry'] },
     { id: 2, url: 'images/2.jpg', keywords: ['cute', 'dog'] },
@@ -164,4 +165,18 @@ function increaseFont() {
 function decreaseFont() {
     if (gMeme.lines[gMeme.selectedLineIdx].size === 2) return
     gMeme.lines[gMeme.selectedLineIdx].size -= 2
+}
+
+function saveMeme() {
+    var meme = getMeme();
+    const img = gElCanvas.toDataURL();
+    gMemeSave.push({
+        img,
+        meme
+    });
+    saveToStorage(KEY, gMemeSave)
+}
+
+function setSavedMeme(meme) {
+    gMeme = meme
 }
