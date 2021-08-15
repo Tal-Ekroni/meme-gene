@@ -27,7 +27,7 @@ var gImgs = [
 var gMeme = {
     selectedImgId: 0,
     selectedLineIdx: 0,
-    isDrag: false,
+    isDrag:false,
     lines: [
         {
             txt: 'Your Text Here',
@@ -187,35 +187,3 @@ function setSavedMeme(meme) {
 
 
 
-// drag 
-
-
-function getEvPos(ev) {
-    var pos = {
-        x: ev.offsetX,
-        y: ev.offsetY
-    }
-    if (gTouchEvs.includes(ev.type)) {
-        ev.preventDefault()
-        ev = ev.changedTouches[0]
-        pos = {
-            x: ev.pageX - ev.target.offsetLeft - ev.target.clientLeft,
-            y: ev.pageY - ev.target.offsetTop - ev.target.clientTop
-        }
-    }
-    return pos
-}
-function setLineDrag(isDrag) {
-    gMeme.isDrag = isDrag
-}
-function moveLine(dx, dy) {
-    gMeme.lines[selectedImgId].posX += dx
-    gMeme.lines[selectedImgId].posY += dy
-
-}
-
-// function isLineClicked(clickedPos) {
-//     const { pos } = gMeme.lines[selectedLineIdx]
-//     const distance = Math.sqrt((pos.x - clickedPos.x) ** 2 + (pos.y - clickedPos.y) ** 2)
-//     return distance <= gCircle.size
-// }

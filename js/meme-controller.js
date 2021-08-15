@@ -4,9 +4,8 @@
 function onInit() {
     gElCanvas = document.getElementById('canvas');
     gCtx = gElCanvas.getContext('2d');
-    document.querySelector('.edit').classList.toggle('hidden')
-    document.querySelector('.saved-memes').classList.toggle('hidden')
-    addListeners()
+    document.querySelector('.edit').style.display='none'
+    document.querySelector('.saved-memes').style.display='none'
     renderGallery()
 }
 
@@ -58,10 +57,10 @@ function renderGallery() {
 
 function onEditImg(el) {
     editImg(el)
-    document.querySelector('.search').classList.toggle('hidden')
-    document.querySelector('.img-gallery').classList.toggle('hidden')
-    document.querySelector('.edit').classList.toggle('hidden')
-    document.querySelector('.about').classList.toggle('hidden')
+    document.querySelector('.search').style.display='none'
+    document.querySelector('.img-gallery').style.display='none'
+    document.querySelector('.edit').style.display='flex'
+    document.querySelector('.about').style.display='none'
     renderCanvas()
 
 
@@ -145,10 +144,14 @@ function renderSavedMemes() {
     var elSaved = document.querySelector('.saved-memes');
     elSaved.innerHTML = strHtmls.join('');
 }
+
+
 function onOpenSavedMemesGallery(){
-    document.querySelector('.saved-memes').classList.toggle('hidden')
-    document.querySelector('.img-gallery').classList.toggle('hidden')
-    document.querySelector('.about').classList.toggle('hidden')
+    document.querySelector('.saved-memes').style.display='flex'
+    document.querySelector('.img-gallery').style.display='none'
+    document.querySelector('.about').style.display='none'
+    document.querySelector('.edit').style.display='none'
+
     renderSavedMemes()
 }
 function onSave(){
@@ -156,73 +159,9 @@ function onSave(){
 }
 function onLoadSavedMeme(idx) {
     var savedMemes = loadFromStorage(KEY);
-    document.querySelector('.saved-memes').classList.toggle('hidden')
-    // document.querySelector('.edit').classList.toggle('hidden')
+    document.querySelector('.saved-memes').style.display='none'
+    document.querySelector('.edit').style.display='flex'
     setSavedMeme(savedMemes[idx].meme);
-    // drewCanvas()
     renderCanvas();
 }
-
-
-
-
-
-
-
-// Drag 
-
-function addListeners() {
-    addMouseListeners()
-    addTouchListeners()
-}
-
-function addMouseListeners() {
-    gElCanvas.addEventListener('mousemove', onMove)
-    gElCanvas.addEventListener('mousedown', onDown)
-    gElCanvas.addEventListener('mouseup', onUp)
-}
-
-function addTouchListeners() {
-    gElCanvas.addEventListener('touchmove', onMove)
-    gElCanvas.addEventListener('touchstart', onDown)
-    gElCanvas.addEventListener('touchend', onUp)
-}
-
-function onDown(ev) {
-    const pos = getEvPos(ev)
-    if (!isLineClicked(pos)) return
-    setLineDrag(true)
-    gStartPos = pos
-    document.body.style.cursor = 'grabbing'
-
-}
-
-function onMove(ev) {
-    const gMeme = getMeme();
-    if (gMeme.isDrag) {
-        const pos = getEvPos(ev)
-        const dx = pos.x - gStartPos.x
-        const dy = pos.y - gStartPos.y
-        moveLine(dx, dy)
-        gStartPos = pos
-        renderCanvas()
-    }
-}
-
-function onUp() {
-    setLineDrag(false)
-    document.body.style.cursor = 'grab'
-}
-
-
-
-
-
-// function isLineClicked(clickedPos) {
-//     const { pos } = gMeme
-//     const distance = Math.sqrt((pos.x - clickedPos.x) ** 2 + (pos.y - clickedPos.y) ** 2)
-//     return distance <= gCircle.size
-// }
-
-
 

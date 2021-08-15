@@ -6,17 +6,17 @@
 
 @font-face {
     font-family: "Montserrat";
-    src: url("/fonts/Montserrat-Light.ttf") format("woff2");
+    src: url("../fonts/Awesome/fa-brands-400.ttf") format("woff2");
 }
 
 @font-face {
     font-family: "Brands";
-    src: url("/fonts/Awesome/fa-brands-400.ttf")
+    src: url("../fonts/Awesome/fa-brands-400.ttf")
 }
 
 @font-face {
     font-family: "Solid";
-    src: url("/fonts/Awesome/fa-solid-900.ttf")
+    src: url("../fonts/Awesome/fa-solid-900.ttf")
 }
 
 /* MAIN PAGE  */
@@ -53,9 +53,7 @@ body {
 .main-menu {
     height: 100%;
 }
-.menu-toggle{
-    font-size: 36px;
-}
+
 .main-menu a {
     cursor: pointer;
     height: 100%;
@@ -74,6 +72,8 @@ body {
     overflow: hidden;
     outline: none;
     color: white;
+    font-size: 36px;
+    padding: 0;
 }
 
 header ul {
@@ -92,7 +92,7 @@ header ul li {
 
 header ul li a:hover {
     color: #040a2c;
-    /* border-bottom: 1px solid #040a2c; */
+    border-bottom: 1px solid #040a2c;
 }
 
 /* GALLERY */
@@ -110,7 +110,9 @@ header ul li a:hover {
     cursor: pointer;
     border-radius: 18%;
 }
+
 /* SAVED  */
+
 .img-saved {
     width: 80px;
     height: 80px;
@@ -119,15 +121,17 @@ header ul li a:hover {
     cursor: pointer;
     border-radius: 18%;
 }
-.saved-memes{
-    padding: 10px 14px 13px 20px;
 
+.saved-memes {
+    padding: 10px 14px 13px 20px;
 }
+
 /* ABOUT */
 
 .about {
     height: 160px;
 }
+
 
 .about-img {
     width: 80px;
@@ -388,7 +392,7 @@ header ul li a:hover {
         display: block;
         text-align: center;
         padding: 10px 0;
-        border-bottom: 1px solid blac
+        border-bottom: 1px solid black
     }
     .screen {
         position: fixed;
@@ -415,3 +419,4 @@ header ul li a:hover {
         font-size: 1rem;
     }
 }
+

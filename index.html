@@ -15,13 +15,13 @@
         <img src="images/Layer-2.png" class="header-logo">
         <ul class="main-menu clean-list flex justify-center align-center">
             <li><a href="index.html">Gallery</a></li>
-            <li><a onclick="onOpenSavedMemesGallery()" href="#">Memes</a></li>
+            <li><a onclick="onOpenSavedMemesGallery()" >Memes</a></li>
         </ul>
         <button class="menu-toggle" onclick="onToggleMenu()">☰</button>
     </header>
     <div class="search flex align-center">
         <input type="text" class="search-meme" name="search-meme" placeholder="Search" oninput="renderGallery()"
-            oninput="onSearch()">
+            oninput="onSearch(this.value)">
     </div>
     <div class="saved-memes">
     </div>
@@ -53,7 +53,7 @@
                 <img src="images/ICONS/up-and-down-opposite-double-arrows-side-by-side.png" class="edit-tools"
                     alt="switch lines" onclick="onSwitchLines()">
                 <img src="images/ICONS/add.png" alt="add line" class="edit-tools" onclick="onCreateLine()">
-                <img src="images/Icons/trash.png" alt="delete" class="edit-tools" onclick="onDeleteLine()">
+                <img src="images/ICONS/trash.png" alt="delete" class="edit-tools" onclick="onDeleteLine()">
             </div>
             <div class="tools-3">
                 <img src="images/ICONS/increase font - icon.png" alt="increase font" class="edit-tools"
