@@ -3,6 +3,8 @@ var gElCanvas
 var gCtx
 var gMemeSave = []
 const KEY = 'memeDB'
+const gTouchEvs = ['touchstart', 'touchmove', 'touchend']
+
 var gImgs = [
     { id: 1, url: 'images/1.jpg', keywords: ['politics', 'angry'] },
     { id: 2, url: 'images/2.jpg', keywords: ['cute', 'dog'] },
@@ -25,6 +27,7 @@ var gImgs = [
 var gMeme = {
     selectedImgId: 0,
     selectedLineIdx: 0,
+    isDrag: false,
     lines: [
         {
             txt: 'Your Text Here',
@@ -180,3 +183,39 @@ function saveMeme() {
 function setSavedMeme(meme) {
     gMeme = meme
 }
+
+
+
+
+// drag 
+
+
+function getEvPos(ev) {
+    var pos = {
+        x: ev.offsetX,
+        y: ev.offsetY
+    }
+    if (gTouchEvs.includes(ev.type)) {
+        ev.preventDefault()
+        ev = ev.changedTouches[0]
+        pos = {
+            x: ev.pageX - ev.target.offsetLeft - ev.target.clientLeft,
+            y: ev.pageY - ev.target.offsetTop - ev.target.clientTop
+        }
+    }
+    return pos
+}
+function setLineDrag(isDrag) {
+    gMeme.isDrag = isDrag
+}
+function moveLine(dx, dy) {
+    gMeme.lines[selectedImgId].posX += dx
+    gMeme.lines[selectedImgId].posY += dy
+
+}
+
+// function isLineClicked(clickedPos) {
+//     const { pos } = gMeme.lines[selectedLineIdx]
+//     const distance = Math.sqrt((pos.x - clickedPos.x) ** 2 + (pos.y - clickedPos.y) ** 2)
+//     return distance <= gCircle.size
+// }
