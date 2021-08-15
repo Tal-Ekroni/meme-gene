@@ -50,16 +50,14 @@ body {
 
 /* NAV  */
 
-.main-menu {
-    height: 100%;
-}
 
 .main-menu a {
+    display: flex;
+    align-items: center;
     cursor: pointer;
     height: 100%;
     padding: 0 10px;
     box-sizing: border-box;
-    /* font-size: 0.593rem; */
     text-decoration: none;
     color: #ffffff;
 }
@@ -81,16 +79,17 @@ header ul {
     margin: 0;
     padding: 0;
     line-height: 33px;
-    height: 100%;
+    /* height: 100%; */
     align-items: stretch;
 }
 
 header ul li {
-    justify-content: center;
     display: inline-flex;
+    height: 100%;
+    justify-content: center;
 }
 
-header ul li a:hover {
+header ul li :hover {
     color: #040a2c;
     border-bottom: 1px solid #040a2c;
 }
@@ -389,8 +388,7 @@ header ul li a:hover {
         box-shadow: -5px -8px 10px #ff7f0080;
     }
     .main-menu a {
-        display: block;
-        text-align: center;
+   
         padding: 10px 0;
         border-bottom: 1px solid black
     }
